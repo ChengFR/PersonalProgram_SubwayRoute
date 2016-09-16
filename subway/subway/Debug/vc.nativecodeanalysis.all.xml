@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><DEFECTS><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\cfree\documents\visual studio 2015\projects\subway\subway\</FILEPATH>
+      <FILENAME>subway.cpp</FILENAME>
+      <LINE>371</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>6246</DEFECTCODE>
+    <DESCRIPTION>Local declaration of 'b' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '354' of 'c:\users\cfree\documents\visual studio 2015\projects\subway\subway\subway.cpp'.</DESCRIPTION>
+    <FUNCTION>subNet::findTrailC</FUNCTION>
+    <DECORATED>?findTrailC@subNet@@QAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V23@0@Z</DECORATED>
+    <FUNCLINE>337</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\cfree\documents\visual studio 2015\projects\subway\subway\</FILEPATH>
+        <FILENAME>subway.cpp</FILENAME>
+        <LINE>354</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\cfree\documents\visual studio 2015\projects\subway\subway\</FILEPATH>
+      <FILENAME>subway.cpp</FILENAME>
+      <LINE>372</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>6246</DEFECTCODE>
+    <DESCRIPTION>Local declaration of 'e' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '355' of 'c:\users\cfree\documents\visual studio 2015\projects\subway\subway\subway.cpp'.</DESCRIPTION>
+    <FUNCTION>subNet::findTrailC</FUNCTION>
+    <DECORATED>?findTrailC@subNet@@QAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V23@0@Z</DECORATED>
+    <FUNCLINE>337</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\cfree\documents\visual studio 2015\projects\subway\subway\</FILEPATH>
+        <FILENAME>subway.cpp</FILENAME>
+        <LINE>355</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT></DEFECTS>

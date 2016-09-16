@@ -1,0 +1,9 @@
+﻿  subway.cpp
+subway.cpp(128): warning C4551: function call missing argument list
+  Generating code
+  0 of 512 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    25 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  subway.vcxproj -> C:\Users\CFREE\documents\visual studio 2015\Projects\subway\Release\subway.exe
+  subway.vcxproj -> C:\Users\CFREE\documents\visual studio 2015\Projects\subway\Release\subway.pdb (Full PDB)
