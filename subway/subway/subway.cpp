@@ -50,7 +50,10 @@ public:
 		auto b = _stations.begin();
 		auto e = _stations.end();
 		for (; b + 1 != e; b++) {
+	
 			(*b)->addline(this);
+			if (_name == "1ºÅÏß" && (*b)->_name == "ËÄ»Ý")
+				continue;
 			(*b)->addstation(*(b+1));
 			(*(b + 1))->addstation(*b);
 		}
@@ -202,7 +205,7 @@ int subNet::calcDis(station* sta1, station* sta2, subLine* line) {
 		if ((*b) == sta2)
 			num2 = i;
 	}
-	if (line->_isCir) {//?
+	if (line->_isCir) {
 		int length = line->_stations.size();
 		int dis1 = (num1 - num2) % length;
 		int dis2 = (num2 - num1) % length;
@@ -296,7 +299,7 @@ string subNet::findTrailB(string initial, string target) {
 		sta = *(list.begin());
 		if (sta == nullptr) break;//
 		list.pop_front();
-		if (sta == iniSta) {
+		if (sta->_name == iniSta->_name) {
 			flag = true;
 			break;
 		}
@@ -336,6 +339,12 @@ string subNet::findTrailB(string initial, string target) {
 			if ((*b)->_isTran && !inLine(*(b - 1), *(b + 1))) {
 				subTrail += "»»³Ë";
 				subTrail += getLine(*b, *(b + 1))->_name;
+			}
+			else if ((*b)->_name == "ËÄ»Ý¶«" && (*(b + 1))->_name == "¸ß±®µê") {
+				subTrail += "»»³Ë°ËÍ¨Ïß";
+			}
+			else if ((*b)->_name == "ËÄ»Ý¶«" && (*(b + 1))->_name == "ËÄ»Ý") {
+				subTrail += "»»³Ë1ºÅÏß";
 			}
 			subTrail += "\n";
 		}
@@ -463,29 +472,48 @@ string subNet::completeStation(station* sta1, station* sta2) {
 	}
 	if (line->_isCir) {
 		int length = line->_stations.size();
-		if (i > j) {
-			swap(i, j);
+		if (j > i) {
+			if (j - i < length / 2) {
+				for (; ++i < j;) {
+					stas += line->_stations[i]->_name;
+					stas += "\n";
+				}
+			}
+			else {
+				for (; --i > j - length;) {
+					stas += line->_stations[(i + length)%length]->_name;
+					stas += "\n";
+				}
+			}
 		}
-		if (j - i < length / 2) {
+		else {
+			if (i - j < length / 2) {
+				for (; --i > j;) {
+					stas += line->_stations[i]->_name;
+					stas += "\n";
+				}
+			}
+			else {
+				for (; ++i < j + length;) {
+					stas += line->_stations[i%length]->_name;
+					stas += "\n";
+				}
+			}
+		
+		}
+	}
+	else {
+		if (i > j) {
 			for (; ++i < j;) {
 				stas += line->_stations[i]->_name;
 				stas += "\n";
 			}
 		}
 		else {
-			for (; ++j < i + length;) {
-				stas += line->_stations[j%length]->_name;
+			for (; --i > j;) {
+				stas += line->_stations[i]->_name;
 				stas += "\n";
 			}
-		}
-	}
-	else {
-		if (i > j) {
-			swap(i, j);
-		}
-		for (; ++i < j;) {
-			stas += line->_stations[i]->_name;
-			stas += "\n";
 		}
 	}
 	return stas;
@@ -511,6 +539,7 @@ string subNet::completeStation(station* sta1, station* sta2) {
 		for (++b, --e; b != e; b++) {
 			subTrail += (*b)->_name;
 			if ((*b)->_isTran && !inLine(*(b - 1), *(b + 1))) {
+
 				subTrail += "»»³Ë";
 				subTrail += getLine(*b, *(b + 1))->_name;
 			}

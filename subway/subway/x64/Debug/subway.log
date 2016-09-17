@@ -1,0 +1,6 @@
+﻿  subway.cpp
+c:\users\cfree\desktop\personalprogram_subwayroute\subway\subway\subway.cpp(128): warning C4551: function call missing argument list
+c:\users\cfree\desktop\personalprogram_subwayroute\subway\subway\subway.cpp(206): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\cfree\desktop\personalprogram_subwayroute\subway\subway\subway.cpp(465): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  subway.vcxproj -> C:\Users\CFREE\Desktop\PersonalProgram_SubwayRoute\subway\x64\Debug\subway.exe
+  subway.vcxproj -> C:\Users\CFREE\Desktop\PersonalProgram_SubwayRoute\subway\x64\Debug\subway.pdb (Full PDB)
