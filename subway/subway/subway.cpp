@@ -52,8 +52,8 @@ public:
 		for (; b + 1 != e; b++) {
 	
 			(*b)->addline(this);
-			if (_name == "1号线" && (*b)->_name == "四惠")
-				continue;
+			//if (_name == "1号线" && (*b)->_name == "四惠")
+				//continue;
 			(*b)->addstation(*(b+1));
 			(*(b + 1))->addstation(*b);
 		}
@@ -128,7 +128,7 @@ void subNet::readFile() {
 	fileread.open(filename);
 	if (!fileread) {
 		cerr << "can't open file." << endl;
-		exit;
+		exit(-1);
 	}
 	while (getline(fileread, line)) {
 		isCircle = (line[0] == '#');
@@ -206,7 +206,7 @@ int subNet::calcDis(station* sta1, station* sta2, subLine* line) {
 			num2 = i;
 	}
 	if (line->_isCir) {
-		int length = line->_stations.size();
+		int length = int(line->_stations.size());
 		int dis1 = (num1 - num2) % length;
 		int dis2 = (num2 - num1) % length;
 		return (dis1 > dis2) ? dis1 : dis2;
@@ -471,7 +471,7 @@ string subNet::completeStation(station* sta1, station* sta2) {
 			break;
 	}
 	if (line->_isCir) {
-		int length = line->_stations.size();
+		int length = int(line->_stations.size());
 		if (j > i) {
 			if (j - i < length / 2) {
 				for (; ++i < j;) {
@@ -503,7 +503,7 @@ string subNet::completeStation(station* sta1, station* sta2) {
 		}
 	}
 	else {
-		if (i > j) {
+		if (i < j) {
 			for (; ++i < j;) {
 				stas += line->_stations[i]->_name;
 				stas += "\n";
